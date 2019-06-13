@@ -72,8 +72,10 @@ Run:
 # Install required packages
 python main.py
 ```
-It will ask for an initial image in the form of a vector: (Hue:0-360, Saturation:0-1, Lightness:0-1, Orientation:0,1, Color Distance between the most dominant colors: 0-180)
-An example vector would be: (123,0.6,0.3,0,178)
+It will ask for an initial image in the form of a vector: (Hue:0-360, Saturation:0-1, Lightness:0-1, Orientation:0,1, Color Distance between the most dominant colors: 0-180) </br>
+An example vector would be: (123,0.6,0.3,0,178)</br>
+The CCB will then suggest another image vector, which can be accepted (y) or rejected (n) or can be stopped (quit).
+
 
 ## License
 
