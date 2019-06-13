@@ -10,37 +10,48 @@ and relevant for a designer yet also 2) adapt to the designer’s
 changing strategy of diversification and intensification.
 
 ## Overview of the Algorithm:
-We first slice the potential mood board space defined as color value (C), saturation
+
+<img src="https://github.com/aalto-ui/MayAI/blob/master/images/Figure1.png"/>
+We first slice the potential mood board space defined as: color value (C), saturation
 (S), color lightness (L), image orientation (O), and color
 distance (D) into partitions (see bandit.py).
 These are then handled by strategy agents (A), where each is responsible for recommendations by its suggestion agents (a).
 
 In every discrete trial:
-(1) a mood board is transformed into a five-dimensional
+<ol>
+  <li>a mood board is transformed into a five-dimensional
 vector in the context space and is assigned to the strategy
-agent of the corresponding partition;
-(2) the agent queries its own suggestion agents for similar
+agent of the corresponding partition;</li>
+  <li>the agent queries its own suggestion agents for similar
 suggestions (exploitation) and nearby strategy agents
-for alternative moods (exploration);
-(3) each suggestion agent within the current strategy, and
+for alternative moods (exploration);</li>
+  <li>
+each suggestion agent within the current strategy, and
 each nearby strategy agent, provides probabilities for
-making a good suggestion (Fig. 1: b);
-(4) the agent with the highest probability is selected with
-respect to an exploration/exploitation criterion, c;
-(5) if a suggestion agent is selected (Fig. 1: c), it describes
+making a good suggestion (Fig. 1: b);</li>
+   <li>
+the agent with the highest probability is selected with
+respect to an exploration/exploitation criterion, c;</li>
+  <li>
+if a suggestion agent is selected (Fig. 1: c), it describes
 the next image suggestion feature vector; otherwise
 (Fig. 1: d), the corresponding strategy agent queries its
-own suggestion agents to identify this vector;
-(6) this vector, in combination with the association list,
+own suggestion agents to identify this vector;</li>
+  <li>this vector, in combination with the association list,
 is used to query a suitable image in the local database;
 if not successful, it will be translated into humanreadable
-features to query images online in real time;
-(7) the user accepts or rejects the suggested image; and
-(8) that feedback is used to update the probability distributions
+features to query images online in real time;</li>
+  <li>the user accepts or rejects the suggested image; and</li>
+  <li>that feedback is used to update the probability distributions
 of the corresponding suggestion agents and,
 in case of referral, of the neighboring strategy agent.
+</li>
+</ol>
 
-Only the CCB code will be provided in the following.
+
+
+
+The code for step 1 - 5 will be provided in the following.
 
 ## Getting started:
 ### Dependencies
